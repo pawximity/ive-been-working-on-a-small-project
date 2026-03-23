@@ -10,6 +10,8 @@
 
 ---
 
+<img src="images/lixora.png" alt="The Lixora nav bar" width="900"/>
+
 Analysis of a Discord-delivered malware campaign involving staged execution, credential theft, human-operated account abuse, and a bad game called Lixora.
 
 ## Overview

@@ -29,9 +29,9 @@ This documents the analysis of a Discord-delivered malware campaign disguised as
 
 The investigation began after a friend received a message on Discord:
 
-<img src="images/initial_message.png" alt="the initial message" width="400"/>
+<img src="images/initial_message.png" alt="the initial message" width="400"/>  
 
-<img src="images/link.png" alt="link associated with message" width="400" height="450"/>
+<img src="images/link.png" alt="link associated with message" width="400" height="450"/>  
 
 The account was later confirmed to be compromised.
 

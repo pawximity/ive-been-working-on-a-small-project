@@ -12,20 +12,13 @@
 
 Analysis of a Discord-delivered malware campaign involving staged execution, credential theft, human-operated account abuse, and a bad game called Lixora.
 
-
 ## Overview
 
 ---
 
-This repository documents the analysis of a Discord-delivered malware campaign disguised as a game titled:
+This documents the analysis of a Discord-delivered malware campaign disguised as a game titled:
 
 **“Lixora – Adventures of a Dark Wizard”**
-
-The campaign uses:
-- Social engineering via Discord
-- A staged execution chain
-- Credential and session theft
-- Compromised account reuse
 
 
 ## Initial Discovery
@@ -36,10 +29,7 @@ The investigation began after a friend received a message on Discord:
 
 <img src="images/initial_message.png" alt="the initial message" width="400"/>
 
-
-(This screenshot was taken at a later time)
-
-<img src="images/link.png" alt="link associated with message" width="400"/>
+<img src="images/link.png" alt="link associated with message" width="400" height="450"/>
 
 The account was later confirmed to be compromised.
 
@@ -50,19 +40,11 @@ The account was later confirmed to be compromised.
 
 ### 1. VirusTotal
 
-- Initial detection: 1/95 vendors
-- Minimal intelligence available
-- Likely a new or modified sample
+The initial detection is 1/95 vendors, so it's likely a new or modified sample:
 
 <img src="images/virus_total_1.png" alt="Virus total scan of the url" width="900"/>
 
-
-
 ### 2. Infrastructure Pivoting
-
-- Extracted the serving IP and related artifacts from VirusTotal
-- Identified associated domains and communicating files
-- Observed indicators of staged payload delivery
 
 VirusTotal shows a related executable (bootstrapper) that has communicated with the serving infrastructure:
 
@@ -78,12 +60,7 @@ The serving IP itself is also associated with multiple communicating files, rein
 
 The relationships suggest a multi-stage delivery, where an executable retrieves additional payloads and communicates with external infrastructure.
 
-
 ### 3. Hybrid Analysis
-
-- Page rendered successfully
-- Download button visible
-- Payload was not executed in the sandbox
 
 <img src="images/hybrid_analysis_1.png" alt="Hybrid Analysis showing rendered page without payload execution" width="900"/>
 
@@ -97,8 +74,6 @@ At this stage, the presence of a functional delivery page is confirmed but an al
 
 ### 4. Payload Retrieval
 
-- Identified final payload and extracted the link: Lixora.exe
-
 To better understand how the payload was being delivered, the download URL was inspected using a curl command. This revealed that the download link resolves to a direct file hosted on Dropbox.
 
 <img src="images/curl_output.png" alt="Curl output showing redirect to Dropbox-hosted payload" width="900"/>
@@ -106,12 +81,6 @@ To better understand how the payload was being delivered, the download URL was i
 This confirms that the payload is not embedded in the landing page, but instead retrieved from an external file hosting service.
 
 ### 5. Dynamic Analysis (Tria.ge)
-
-- Payload successfully downloaded and executed
-- Full telemetry captured:
-  - process execution
-  - file activity
-  - network communication
 
 This stage provided full visibility.
 
@@ -136,13 +105,13 @@ Additionally, the payload communicates with external infrastructure, including a
 ---
 
 Lixora.exe (NSIS installer)  
-→ Game Setup Manager.exe (Electron app)  
-→ PowerShell  
-→ microsoft.exe -jar service.jar  
+- Game Setup Manager.exe (Electron app)  
+- PowerShell  
+- microsoft.exe -jar service.jar  
 
-At first glance, Lixora presents itself as a dead simple game. In reality, it is little more than a staged execution chain wrapped in a bad UI.
+At first glance, Lixora presents itself as a simple game. In reality, it is little more than a staged execution chain wrapped in a bad UI.
 
-Aside from the singular js graphic, this is where it becomes clear that Lixora is a lackluster game.
+Aside from the singular Javascript graphic, this is where it becomes clear that Lixora is a lackluster game.
 
 The initial executable acts as a wrapper, unpacking and launching an Electron-based app ("Game Setup Manager.exe"). This component then invokes PowerShell to execute a Java payload using a conveniently named binary: `microsoft.exe`.
 
@@ -155,10 +124,6 @@ The payload terminates running browser processes prior to execution. This forces
 ## Command & Control (C2)
 
 ---
-
-Observed communication with:
-- ayhanedition.site  
-- Discord endpoints  
 
 The payload communicates with both Discord infrastructure and an external domain, `ayhanedition.site`, which is suspected to function as command-and-control (C2) infrastructure.
 

@@ -121,6 +121,8 @@ You guessed it! It's a renamed Java runtime used to execute `service.jar`, the m
 
 The payload terminates running browser processes prior to execution. This forces users to re-open sessions, and allows the malware access to fresh authentication data and session tokens.
 
+<img src="images/triage_5.png" alt="Tria.ge process tree showing browser process termination" width="900"/>
+
 ## Command & Control (C2)
 
 ---
@@ -134,6 +136,8 @@ Further analysis of `ayhanedition.site` on VirusTotal shows consistency with pre
 <img src="images/virus_total_6.png" alt="VirusTotal analysis of ayhanedition.site" width="900"/>
 
 ## Infection Flow
+
+---
 
 ```mermaid
 flowchart TD
@@ -176,8 +180,15 @@ Additionally, victims were contacted and asked to pay for the return of their co
 
 <img src="images/account_extortion.png" alt="Account extortion attempt" width="400"/>
 
-Further indicators suggest manual interaction by the operator. Friends of compromised accounts reported being blocked after responding to the initial lure message in unexpected or non-conforming ways.
+Friends of compromised accounts reported being blocked after responding to the initial lure message in unexpected or non-conforming ways.
 
 This strongly suggests there's a human in the loop.
 
-It was also observed that the original lure message was deleted from conversations after being sent. Perhaps trying to reduce visibility, avoid suspicion, and prolong the effectiveness of the campaign.
+The original lure message was deleted from conversations after being sent. Perhaps trying to reduce visibility, avoid suspicion, and prolong the effectiveness of the campaign.
+
+It was later observed that the account seems to have removed/blocked additional friends regardless
+of how they responded to the initial lure message.
+
+This further suggests an attempt to reduce visibility or operate under a limited account context.
+
+<img src="images/profile_renovation.png" alt="Account extortion attempt" width="600"/>

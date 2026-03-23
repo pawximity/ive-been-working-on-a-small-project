@@ -188,7 +188,7 @@ This strongly suggests there's a human in the loop.
 
 The original lure message was deleted from conversations after being sent. Perhaps trying to reduce visibility, avoid suspicion, and prolong the effectiveness of the campaign.
 
-It was later observed that the account seems to have removed/blocked additional friends regardless
+It was later observed that compromised accounts have removed/blocked additional friends regardless
 of how they responded to the initial lure message.
 
 This further suggests an attempt to reduce visibility or operate under a limited account context.

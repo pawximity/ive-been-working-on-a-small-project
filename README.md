@@ -194,3 +194,5 @@ of how they responded to the initial lure message.
 This further suggests an attempt to reduce visibility or operate under a limited account context.
 
 <img src="images/profile_renovation.png" alt="Account extortion attempt" width="600"/>
+
+Two observed cases showed different outcomes despite both users having 2FA enabled: in one case, the attacker was limited to session access and was not able to reset 2FA, indicating they only obtained a valid session token; in the other, the attacker was able to fully take over the account and reset 2FA, suggesting additional compromise of browser-stored data.

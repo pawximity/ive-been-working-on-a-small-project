@@ -196,3 +196,8 @@ This further suggests an attempt to reduce visibility or operate under a limited
 <img src="images/profile_renovation.png" alt="Account extortion attempt" width="600"/>
 
 Two observed cases showed different outcomes despite both users having 2FA enabled: in one case, the attacker was limited to session access and was not able to reset 2FA, indicating they only obtained a valid session token; in the other, the attacker was able to fully take over the account and reset 2FA, suggesting additional compromise of browser-stored data.
+
+---
+In a real case associated with this campaign, a compromised Discord account remained unrecovered after 27+ days despite an active support ticket. This highlights a significant gap between the speed of account compromise and the platform’s incident response timeline.
+
+<img src="images/ticket_status.png" alt="Discord support ticket status" width="900"/>

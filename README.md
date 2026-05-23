@@ -201,3 +201,7 @@ Two observed cases showed different outcomes despite both users having 2FA enabl
 In a real case associated with this campaign, a compromised Discord account remained unrecovered after 27+ days despite an active support ticket. This highlights a significant gap between the speed of account compromise and the platform’s incident response timeline.
 
 <img src="images/ticket_status.png" alt="Discord support ticket status" width="900"/>
+
+Upon regaining access, the victim observed that the account’s Nitro boosts had been redirected toward a large Turkish Discord server (“OwO Hub”) featuring automation and giveaway infrastructure, suggesting the account had been used in a broader monetization or growth-focused scheme.
+
+<img src="images/owo_hub.png" alt="OwO Hub" width="1200"/>
